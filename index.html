@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Microservice | Event Driven - Socket</title>
+</head>
+<body>
+	<h1>
+		Microservice | Event Driven - Socket
+	</h1>
+	<script type="text/javascript" src="http://localhost:3001/socket.io/socket.io.js"></script>
+	<script type="text/javascript">
+		let nodeA = io('http://localhost:3001');
+		let nodeB = io('http://localhost:3002');
+
+		nodeA.on('connect',(data) => {
+			console.log('Node A connected');
+		});
+		nodeA.on('disconnect', (data) => {
+			console.log('Node A disconnect');
+		});
+
+		nodeB.on('connect',(data) => {
+			console.log('Node B connected');
+		});
+		nodeB.on('disconnect', (data) => {
+			console.log('Node B disconnect');
+		});
+
+	</script>
+</body>
+</html>
